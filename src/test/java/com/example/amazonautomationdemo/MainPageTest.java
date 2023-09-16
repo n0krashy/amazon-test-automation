@@ -1,8 +1,8 @@
 package com.example.amazonautomationdemo;
 
+import com.example.amazonautomationdemo.pages.MainPage;
+import com.example.amazonautomationdemo.pages.VideoGamesPage;
 import org.testng.annotations.*;
-
-import static org.testng.Assert.*;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,6 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class MainPageTest {
     private WebDriver driver;
     private MainPage mainPage;
+    private VideoGamesPage videoGamesPage;
 
     @BeforeMethod
     public void setUp() {
@@ -25,10 +26,11 @@ public class MainPageTest {
         driver.quit();
     }
 
-    @Test
-    public void openVideoGames() {
-        VideoGamesPage videoGamesPage = mainPage.openVideoGames();
+    @Test(priority=1)
+    public void openVideoGames() throws InterruptedException {
+        videoGamesPage = mainPage.openVideoGames();
         videoGamesPage.applyFilters();
+        videoGamesPage.addToCartUnder15k();
     }
 
 //    @Test

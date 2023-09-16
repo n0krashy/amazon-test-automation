@@ -1,4 +1,4 @@
-package com.example.amazonautomationdemo;
+package com.example.amazonautomationdemo.pages;
 
 import org.fluentlenium.core.annotation.PageUrl;
 import org.openqa.selenium.By;
@@ -27,7 +27,7 @@ public class MainPage {
     public MainPage(WebDriver driver) {
         this.driver = driver;
         // Defining Explicit Wait
-        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(6));
         waitForPageToLoad();
         clickLogo();
         setLanguageToEnglish();
